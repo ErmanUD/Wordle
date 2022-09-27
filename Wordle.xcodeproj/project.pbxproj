@@ -13,6 +13,9 @@
 		05CF783328E31E8700F62C6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CF783128E31E8700F62C6B /* Main.storyboard */; };
 		05CF783528E31E8A00F62C6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05CF783428E31E8A00F62C6B /* Assets.xcassets */; };
 		05CF783828E31E8A00F62C6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CF783628E31E8A00F62C6B /* LaunchScreen.storyboard */; };
+		05CF784128E31F6300F62C6B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF784028E31F6300F62C6B /* KeyboardViewController.swift */; };
+		05CF784328E31F8000F62C6B /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF784228E31F8000F62C6B /* BoardViewController.swift */; };
+		05CF784528E324E300F62C6B /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF784428E324E300F62C6B /* KeyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		05CF783428E31E8A00F62C6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05CF783728E31E8A00F62C6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05CF783928E31E8A00F62C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05CF784028E31F6300F62C6B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		05CF784228E31F8000F62C6B /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		05CF784428E324E300F62C6B /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				05CF782B28E31E8700F62C6B /* AppDelegate.swift */,
 				05CF782D28E31E8700F62C6B /* SceneDelegate.swift */,
 				05CF782F28E31E8700F62C6B /* ViewController.swift */,
+				05CF784028E31F6300F62C6B /* KeyboardViewController.swift */,
+				05CF784228E31F8000F62C6B /* BoardViewController.swift */,
+				05CF784428E324E300F62C6B /* KeyCell.swift */,
 				05CF783128E31E8700F62C6B /* Main.storyboard */,
 				05CF783428E31E8A00F62C6B /* Assets.xcassets */,
 				05CF783628E31E8A00F62C6B /* LaunchScreen.storyboard */,
@@ -141,6 +150,9 @@
 				05CF783028E31E8700F62C6B /* ViewController.swift in Sources */,
 				05CF782C28E31E8700F62C6B /* AppDelegate.swift in Sources */,
 				05CF782E28E31E8700F62C6B /* SceneDelegate.swift in Sources */,
+				05CF784528E324E300F62C6B /* KeyCell.swift in Sources */,
+				05CF784128E31F6300F62C6B /* KeyboardViewController.swift in Sources */,
+				05CF784328E31F8000F62C6B /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
