@@ -41,8 +41,12 @@ class KeyCell: UICollectionViewCell {
             
         ])
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        label.text = nil
+    }
     
-    func configure(with letter: String) {
-        label.text = letter.uppercased()
+    func configure(with letter: Character) {
+        label.text = String(letter).uppercased()
     }
 }

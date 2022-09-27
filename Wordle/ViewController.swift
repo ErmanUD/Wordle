@@ -12,12 +12,14 @@ class ViewController: UIViewController {
     let keyboardVC = KeyboardViewController()
     let boardVC = BoardViewController()
 
-    let answer = "AFTER"
-    private var guesses: [[String?]] = Array(repeating: Array(repeating: nil,count: 5),count: 6)
+    let answers = ["after", "later", "block", "bonus", "craft", "power", "games"]
+    var answer = ""
+    private var guesses: [[Character?]] = Array(repeating: Array(repeating: nil,count: 5),count: 6)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        answer = answers.randomElement()!
         view.backgroundColor = .systemGray6
         addChildren()
     }
@@ -56,13 +58,49 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: KeyboradViewControllerDelegate {
-    func keyboardViewController(_ vc: KeyboardViewController, didTapKey letter: String) {
-        print(letter)
+    func keyboardViewController(_ vc: KeyboardViewController, didTapKey letter: Character) {
+        var stop = false
+        for i in 0..<guesses.count {
+            for j in 0..<guesses[i].count {
+                if guesses[i][j] == nil {
+                    guesses[i][j] = letter
+                    stop = true
+                    break
+                }
+            }
+            
+            if stop {
+                break
+            }
+        }
+        boardVC.reloadData()
     }
 }
 
 extension ViewController: BoardViewControllerDatasoure {
-    var currentGuesses: [[String?]] {
+    func boxColor(at indexPath: IndexPath) -> UIColor? {
+        let rowIndex = indexPath.section
+        let count = guesses[rowIndex].compactMap({ $0 }).count
+        
+        guard count == 5 else {
+            return nil
+        }
+        
+        let indexedAnswer = Array(answer)
+        
+        guard let letter = guesses[indexPath.section][indexPath.row],
+              indexedAnswer.contains(letter) else {
+            return nil
+        }
+
+        if indexedAnswer[indexPath.row] == letter {
+            return .systemGreen
+        }
+
+        return .systemOrange
+    }
+    
+    var currentGuesses: [[Character?]] {
         return guesses
     }
     

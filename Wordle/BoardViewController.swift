@@ -8,7 +8,8 @@
 import UIKit
 
 protocol BoardViewControllerDatasoure: AnyObject {
-    var currentGuesses: [[String?]] { get }
+    var currentGuesses: [[Character?]] { get }
+    func boxColor(at indexPath: IndexPath) -> UIColor?
 }
 
 class BoardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -43,6 +44,10 @@ class BoardViewController: UIViewController, UICollectionViewDataSource, UIColle
             boardCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
+    
+    public func reloadData() {
+        boardCollectionView.reloadData()
+    }
 }
 
 extension BoardViewController {
@@ -59,9 +64,15 @@ extension BoardViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyCell.identifier, for: indexPath) as? KeyCell else {
             fatalError()
         }
-        cell.backgroundColor = nil
+        
+        cell.backgroundColor = datasource?.boxColor(at: indexPath)
         cell.layer.borderWidth = 3
         cell.layer.borderColor = UIColor.systemGray3.cgColor
+        
+        let guesses = datasource?.currentGuesses ?? []
+        if let letter = guesses[indexPath.section][indexPath.row] {
+            cell.configure(with: letter)
+        }
         
         return cell
     }

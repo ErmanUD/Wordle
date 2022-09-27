@@ -8,21 +8,22 @@
 import UIKit
 
 protocol KeyboradViewControllerDelegate: AnyObject {
-    func keyboardViewController(_ vc: KeyboardViewController, didTapKey letter: String)
+    func keyboardViewController(_ vc: KeyboardViewController, didTapKey letter: Character)
 }
 
 class KeyboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     weak var delegate: KeyboradViewControllerDelegate?
     
-    private var keys: [[String]] = [["q","w","e","r","t","y","u","i","o","p"],
-                                    ["a","s","d","f","g","h","j","k","l"],
-                                    ["z","x","c","v","b","n","m"]
+    private var keys: [[Character]] = [["q","w","e","r","t","y","u","i","o","p"],
+                                       ["a","s","d","f","g","h","j","k","l"],
+                                       ["z","x","c","v","b","n","m"]
     ]
     
     private let keyboardCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 2
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
@@ -48,10 +49,6 @@ class KeyboardViewController: UIViewController, UICollectionViewDataSource, UICo
             keyboardCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-    
-    
-
-
 }
 
 extension KeyboardViewController {
