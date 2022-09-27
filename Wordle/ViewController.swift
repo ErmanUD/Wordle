@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     let keyboardVC = KeyboardViewController()
     let boardVC = BoardViewController()
 
+    let answer = "AFTER"
+    private var guesses: [[String?]] = Array(repeating: Array(repeating: nil,count: 5),count: 6)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +25,14 @@ class ViewController: UIViewController {
     private func addChildren() {
         addChild(keyboardVC)
         keyboardVC.didMove(toParent: self)
+        keyboardVC.delegate = self
         keyboardVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(keyboardVC.view)
         
         addChild(boardVC)
         boardVC.didMove(toParent: self)
         boardVC.view.translatesAutoresizingMaskIntoConstraints = false
+        boardVC.datasource = self
         view.addSubview(boardVC.view)
         
         addConstraints()
@@ -50,3 +55,16 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: KeyboradViewControllerDelegate {
+    func keyboardViewController(_ vc: KeyboardViewController, didTapKey letter: String) {
+        print(letter)
+    }
+}
+
+extension ViewController: BoardViewControllerDatasoure {
+    var currentGuesses: [[String?]] {
+        return guesses
+    }
+    
+    
+}
